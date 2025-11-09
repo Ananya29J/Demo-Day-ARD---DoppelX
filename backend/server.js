@@ -1,60 +1,38 @@
-import express from 'express';
-import cors from 'cors';
-import dotenv from 'dotenv';
-import connectDB from './config/database.js';
+// server.js
+import express from "express";
+import cors from "cors";
 
-// Import routes
-import authRoutes from './routes/authRoutes.js';
-import taskRoutes from './routes/taskRoutes.js';
-import scheduleRoutes from './routes/scheduleRoutes.js';
-import studySessionRoutes from './routes/studySessionRoutes.js';
-import activityRoutes from './routes/activityRoutes.js';
-import doppelgangerRoutes from './routes/doppelgangerRoutes.js';
-import chatRoutes from './routes/chatRoutes.js';
-
-// Load environment variables
-dotenv.config();
-
-// Connect to database
-connectDB();
-
-// Initialize Express app
 const app = express();
+const PORT = 5000;
 
+// ------------------------------
 // Middleware
-app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+// ------------------------------
+// Enable CORS for frontend origins
+app.use(
+  cors({
+    origin: ["http://localhost:5173", "http://localhost:3000"], // include your frontend URL(s)
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true, // allow cookies/auth headers
+  })
+);
 
-// Health check route
-app.get('/api/health', (req, res) => {
-  res.json({ message: 'Digital Doppelgänger API is running!' });
+app.use(express.json()); // parse JSON bodies
+
+// ------------------------------
+// Root route (optional)
+app.get("/", (req, res) => {
+  res.send("✅ Backend server is running! Visit /api/test to test API.");
 });
 
-// API Routes
-app.use('/api/auth', authRoutes);
-app.use('/api/tasks', taskRoutes);
-app.use('/api/schedules', scheduleRoutes);
-app.use('/api/study-sessions', studySessionRoutes);
-app.use('/api/activities', activityRoutes);
-app.use('/api/doppelganger', doppelgangerRoutes);
-app.use('/api/chat', chatRoutes);
-
-// Error handling middleware
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).json({ message: 'Something went wrong!', error: err.message });
+// ------------------------------
+// Test route
+app.get("/api/test", (req, res) => {
+  res.json({ message: "✅ Backend is working successfully!" });
 });
 
-// 404 handler
-app.use((req, res) => {
-  res.status(404).json({ message: 'Route not found' });
-});
-
-// Start server
-const PORT = process.env.PORT || 5000;
+// ------------------------------
+// Start the server
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-  console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
+  console.log(`🚀 Server running at http://localhost:${PORT}`);
 });
-

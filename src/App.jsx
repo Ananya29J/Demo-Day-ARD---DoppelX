@@ -7,12 +7,11 @@ import PrevActivity from "./components/PrevActivity";
 import About from "./components/About";
 import Contact from "./components/Contact";
 
-// ----- Main App -----
 export default function App() {
-  const [page, setPage] = useState("Doppelganger");
+  const [activeComponent, setActiveComponent] = useState("Doppelganger");
 
-  const renderPage = () => {
-    switch (page) {
+  const renderComponent = () => {
+    switch (activeComponent) {
       case "Scheduler":
         return <Scheduler />;
       case "Study With Me":
@@ -31,9 +30,9 @@ export default function App() {
   };
 
   return (
-    <div className="flex h-screen bg-gray-950 text-white">
-      <Sidebar onSelect={setPage} />
-      <main className="flex-1 p-8 overflow-y-auto">{renderPage()}</main>
+    <div className="flex min-h-screen bg-gray-900 text-white">
+      <Sidebar onSelect={setActiveComponent} />
+      <div className="flex-1 p-8 overflow-auto">{renderComponent()}</div>
     </div>
   );
 }

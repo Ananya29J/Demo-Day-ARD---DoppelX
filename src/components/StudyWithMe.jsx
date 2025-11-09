@@ -1,4 +1,7 @@
 import { useState, useEffect } from "react";
+import axios from "axios";
+
+const API_BASE = "http://localhost:5000/api";
 
 export default function StudyWithMe() {
   const [seconds, setSeconds] = useState(25 * 60); // default 25 min
@@ -10,7 +13,7 @@ export default function StudyWithMe() {
     if (isRunning) {
       timer = setInterval(() => {
         if (!infinity && seconds <= 0) {
-          setIsRunning(false);
+          handleStopSession();
         } else {
           setSeconds((s) => (infinity ? s + 1 : s - 1));
         }
@@ -20,14 +23,39 @@ export default function StudyWithMe() {
   }, [isRunning, seconds, infinity]);
 
   const formatTime = (s) => {
+    const hrs = Math.floor(s / 3600);
+    const mins = Math.floor((s % 3600) / 60);
+    const secs = s % 60;
     if (infinity) {
-      const hrs = Math.floor(s / 3600);
-      const mins = Math.floor((s % 3600) / 60);
-      const secs = s % 60;
       return `${hrs}:${("0" + mins).slice(-2)}:${("0" + secs).slice(-2)}`;
     } else {
-      return `${Math.floor(s / 60)}:${("0" + (s % 60)).slice(-2)}`;
+      return `${mins}:${("0" + secs).slice(-2)}`;
     }
+  };
+
+  // Log study session to backend
+  const handleStopSession = async () => {
+    setIsRunning(false);
+
+    const token = localStorage.getItem("token");
+    if (!token) return;
+
+    try {
+      await axios.post(
+        `${API_BASE}/study-sessions`,
+        {
+          type: infinity ? "infinity" : "pomodoro",
+          duration: infinity ? seconds : 25 * 60 - seconds,
+        },
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
+      console.log("Session logged successfully");
+    } catch (err) {
+      console.error("Failed to log session:", err);
+    }
+
+    // reset timer
+    setSeconds(infinity ? 0 : 25 * 60);
   };
 
   return (
@@ -42,13 +70,10 @@ export default function StudyWithMe() {
           {isRunning ? "Pause" : "Start"}
         </button>
         <button
-          onClick={() => {
-            setIsRunning(false);
-            setSeconds(infinity ? 0 : 25 * 60);
-          }}
+          onClick={handleStopSession}
           className="px-6 py-3 bg-gray-700 hover:bg-gray-600 rounded-lg text-white"
         >
-          Reset
+          Stop & Log
         </button>
       </div>
       <button

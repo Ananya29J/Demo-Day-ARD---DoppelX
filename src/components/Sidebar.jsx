@@ -30,7 +30,7 @@ export default function Sidebar({ onSelect }) {
               }`}
               onClick={() => {
                 setActive(item.name);
-                onSelect(item.name);
+                onSelect(item.name); // tell App.jsx which component to render
               }}
             >
               {item.icon}
