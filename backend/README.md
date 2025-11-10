@@ -1,4 +1,4 @@
-# Digital Doppelgänger Backend API
+# DoppelX Backend API
 
 Backend server for the Digital Doppelgänger platform built with Node.js, Express.js, and MongoDB.
 

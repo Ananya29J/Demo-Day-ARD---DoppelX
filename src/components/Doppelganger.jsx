@@ -99,7 +99,7 @@ export default function Doppelganger() {
 
   return (
     <div className="p-8 space-y-10">
-      <h2 className="text-4xl font-bold text-purple-300 text-center">Digital Doppelgänger Scheduler</h2>
+      <h2 className="text-4xl font-bold text-purple-300 text-center">DoppelX Scheduler</h2>
 
       {/* User Schedule Input */}
       <div className="p-6 bg-gray-800 rounded-xl border border-purple-500">

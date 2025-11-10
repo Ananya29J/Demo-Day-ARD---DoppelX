@@ -17,7 +17,7 @@ export default function Sidebar({ onSelect }) {
     <div className="h-screen w-64 bg-gray-900 text-white p-6 flex flex-col justify-between">
       <div>
         <h1 className="text-2xl font-bold mb-10 text-purple-400 tracking-wide">
-          Digital Doppelgänger
+          DoppelX
         </h1>
         <ul>
           {menus.map((item) => (
@@ -40,7 +40,7 @@ export default function Sidebar({ onSelect }) {
         </ul>
       </div>
       <div className="text-sm text-gray-500 text-center">
-        © 2025 Digital Doppelgänger
+        © 2025 DoppelX
       </div>
     </div>
   );

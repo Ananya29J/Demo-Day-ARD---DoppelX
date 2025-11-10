@@ -1,6 +1,6 @@
-# Digital Doppelgänger Platform
+# DoppelX Platform
 
-The Digital Doppelgänger platform creates an AI Twin for each learner by analyzing study hours, breaks, sleep cycles, and past performance. It simulates outcomes (e.g., studying 2 hours instead of 1 could boost scores by 15%) and gives personalized recommendations on schedules, focus areas, and strategies, helping students optimize efforts before real exams.
+The DoppelX platform creates an AI Twin for each learner by analyzing study hours, breaks, sleep cycles, and past performance. It simulates outcomes (e.g., studying 2 hours instead of 1 could boost scores by 15%) and gives personalized recommendations on schedules, focus areas, and strategies, helping students optimize efforts before real exams.
 
 ## Features
 
@@ -15,7 +15,7 @@ The Digital Doppelgänger platform creates an AI Twin for each learner by analyz
 - Free infinity clock for extended study sessions
 - Track study time and sessions
 
-### 3. Digital Doppelgänger (Main Feature)
+### 3. DoppelX (Main Feature)
 - AI-powered analysis of study habits
 - Simulates different study scenarios and outcomes
 - Personalized recommendations for schedules, focus areas, and strategies
