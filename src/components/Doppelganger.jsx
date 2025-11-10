@@ -107,7 +107,7 @@ export default function Doppelganger() {
         <input
           type="text"
           placeholder="Schedule Name"
-          className="mb-4 px-3 py-2 rounded-lg w-full text-black"
+          className="mb-4 px-3 py-2 rounded-lg w-full text-white"
           value={newUserSchedule.name}
           onChange={(e) => setNewUserSchedule({ ...newUserSchedule, name: e.target.value })}
         />
@@ -157,7 +157,7 @@ export default function Doppelganger() {
         <input
           type="text"
           placeholder="Schedule Name"
-          className="mb-4 px-3 py-2 rounded-lg w-full text-black"
+          className="mb-4 px-3 py-2 rounded-lg w-full text-white"
           value={newTestSchedule.name}
           onChange={(e) => setNewTestSchedule({ ...newTestSchedule, name: e.target.value })}
         />
