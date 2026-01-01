@@ -1,6 +1,12 @@
 # DoppelX Platform
 
-The DoppelX platform creates an AI Twin for each learner by analyzing study hours, breaks, sleep cycles, and past performance. It simulates outcomes (e.g., studying 2 hours instead of 1 could boost scores by 15%) and gives personalized recommendations on schedules, focus areas, and strategies, helping students optimize efforts before real exams.
+DigitalX — an AI-driven twin that mirrors your learning habits, simulates your possible outcomes, and helps you find your best path.
+
+* Upload your study data — hours, breaks, sleep, grades.
+* Watch your Doppelgänger simulate “what-if” versions of you.
+* Get personalized strategies and outcomes before you take risks.
+* Use it as your study buddy — host “study with me” sessions, stay accountable, and grow with your AI companion.
+
 
 ## Features
 
@@ -49,27 +55,6 @@ The DoppelX platform creates an AI Twin for each learner by analyzing study hour
 - JWT Authentication
 - OpenAI API (optional, for enhanced chatbot)
 
-## Database
 
-The application uses MongoDB to store:
-- User accounts and avatars
-- Tasks and schedules
-- Study sessions
-- Activity records
-- AI analyses and recommendations
-- Chat history
-
-## Development
-
-### Frontend Development
-- Uses Vite for fast HMR (Hot Module Replacement)
-- Tailwind CSS for styling
-- React 19 with hooks
-
-### Backend Development
-- Express.js REST API
-- Mongoose for MongoDB ODM
-- JWT for authentication
-- CORS enabled for frontend communication
 
 
