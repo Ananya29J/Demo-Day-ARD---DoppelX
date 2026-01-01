@@ -49,14 +49,6 @@ The DoppelX platform creates an AI Twin for each learner by analyzing study hour
 - JWT Authentication
 - OpenAI API (optional, for enhanced chatbot)
 
-## Authentication
-
-The backend uses JWT (JSON Web Tokens) for authentication. After registering or logging in, include the token in the Authorization header:
-
-```
-Authorization: Bearer <your_jwt_token>
-```
-
 ## Database
 
 The application uses MongoDB to store:
@@ -80,8 +72,4 @@ The application uses MongoDB to store:
 - JWT for authentication
 - CORS enabled for frontend communication
 
-## Notes
 
-- The AI chatbot works without OpenAI API key but provides basic responses. For enhanced AI responses, add your OpenAI API key.
-- All timestamps are stored in UTC. Convert to local time in the frontend.
-- JWT tokens expire after 30 days.
