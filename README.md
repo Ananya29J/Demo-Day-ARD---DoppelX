@@ -1,4 +1,4 @@
-# Demo Day ARD_25-DoppelX
+# DoppelX
 
 Demo Day ARD'25 <br/>
 Hosted by - ArrowDev Club SRMIST <br/>
